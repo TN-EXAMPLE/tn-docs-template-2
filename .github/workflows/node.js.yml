@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: ["master", "alpha", "beta"]
+    branches: ['master', 'alpha', 'beta']
   pull_request:
-    branches: ["master", "alpha", "beta"]
+    branches: ['master', 'alpha', 'beta']
 
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,10 +36,10 @@ jobs:
         name: Use Node.js ${{ matrix.node-version }}
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build website
         run: pnpm run build
